@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #ValContainer{
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+            font-size: 40px;
+            
+        }
+        body div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        button{
+            height: 40px;
+            font-size: 20px;
+            font-weight: 800;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter APP</h1>
+    <div>
+        <button id="decreament">Click here to Decreament</button>
+        <h3 id="ValContainer" >0</h3>
+        <button id="increament">Click here for increament</button>
+    </div>
+    <button id="reset">RESET</button>
+
+    <!-- Script -->
+
+    <script>
+        const dec = document.getElementById("decreament");
+        const container = document.getElementById("ValContainer");
+        const inc = document.getElementById("increament");
+        const reset = document.getElementById("reset");
+
+        function decrement(){
+            const value = Number(container.innerText);
+            if(value > 0) container.innerText = value - 1;
+            else alert("Negative value Not Allowed !!!");
+        };
+        // for decreament of value 
+        dec.addEventListener("click", decrement); 
+        //For increament of value 
+        inc.addEventListener("click", () => {
+            const value = Number(container.innerText);
+            if(value >= 20){
+                alert("You can value Increament values till 20 !")
+            }
+            else {
+                container.innerText = value + 1;
+            }
+        });
+
+        // for reset Button 
+
+        reset.addEventListener("click", () => {
+            container.innerText = 0;
+        });
+    </script>
+</body>
+</html>
